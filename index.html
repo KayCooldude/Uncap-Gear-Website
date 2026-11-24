@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uncap Gear – Film & photo gear rental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Archivo+Narrow:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<div class="ann"><div id="ann"></div></div>
+<header>
+  <a class="logo" href="#home" aria-label="Uncap Gear home"><svg viewBox="0 0 26 30"><path d="M0 0h26v14a13 16 0 0 1-26 0z" fill="currentColor"/></svg>UNCAP</a>
+  <nav>
+    <a href="#home" data-p="home">Home</a>
+    <a href="#contact" data-p="contact">Contact</a>
+    <a href="#catalogue" data-p="catalogue">Rental catalogue</a>
+    <a href="#quotation" data-p="quotation" class="q">Quotation<span id="badge">0</span></a>
+  </nav>
+</header>
+
+<main>
+<section class="page" id="home">
+  <div class="hero"><i class="rp"></i><i class="rp" style="animation-delay:1.5s"></i><i class="rp" style="animation-delay:3s"></i>
+    <div class="in">
+      <div class="tile"><svg viewBox="0 0 100 100" fill="currentColor"><rect x="8" y="30" width="84" height="52" rx="8"/><rect x="30" y="18" width="26" height="14" rx="3"/><circle cx="50" cy="56" r="20" fill="#c8f854"/><circle cx="50" cy="56" r="12"/></svg></div>
+      <h1><span>Rent the gear.</span> <span>Get the shot.</span></h1>
+      <p>Cameras, lenses, lighting and sound for film and photo shoots. Build a quotation, pick your dates, and collect.</p>
+      <div class="btns"><a class="btn" href="#catalogue">Browse the catalogue</a><a class="btn ghost" href="#most-hired">See most hired</a></div>
+    </div>
+    <div class="marq"><div id="marq"></div></div></div>
+</section>
+
+<section class="page" id="most-hired"><div class="wrap">
+  <div class="sec-h"><div><h2>Most hired</h2><p>Our busiest kit, ranked by bookings.</p></div></div>
+  <div class="grid" id="hiredGrid"></div>
+</div></section>
+
+<section class="page" id="categories"><div class="cats"><div class="cbox"><h2>Shop by Category</h2><div class="cslide"><button class="arw l" id="cPrev" aria-label="Previous categories">&#8249;</button><div class="ctiles" id="catTiles"></div><button class="arw r" id="cNext" aria-label="Next categories">&#8250;</button></div></div></div></section>
+
+<section class="page" id="catalogue"><div class="wrap">
+  <div class="sec-h"><div><h2>Rental catalogue</h2><p>Filter by category. Select a picture for a 360° view.</p></div></div>
+  <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+  <input class="search" id="search" type="search" placeholder="Search gear" aria-label="Search gear">
+  <div class="grid" id="catGrid"></div>
+</div></section>
+
+<section class="page" id="quotation"><div class="wrap">
+  <div class="sec-h"><div><h2>Your quotation</h2><p>Review your gear, set your dates, and get your total.</p></div></div>
+  <div class="qgrid">
+    <div class="panel" id="qItems"></div>
+    <div class="panel">
+      <h3>Rental details</h3>
+      <div class="two"><div><label for="start">Collection date</label><input type="date" id="start"></div>
+      <div><label for="days">Number of days</label><input type="number" id="days" min="1" max="90" value="1"></div></div>
+      <label for="end">Drop-off date</label><input type="date" id="end">
+      <div class="two"><div><label for="cm">Collection</label><select id="cm"><option value="0">Collect in store (free)</option><option value="250">We deliver (+R250)</option></select></div>
+      <div><label for="dm">Return</label><select id="dm"><option value="0">Drop off in store (free)</option><option value="250">We collect (+R250)</option></select></div></div>
+      <div class="sum" style="margin-top:20px" id="sum"></div>
+      <h3 style="margin-top:24px">Your details</h3>
+      <label for="cn">Full name</label><input id="cn" autocomplete="name">
+      <div class="two"><div><label for="ce">Email</label><input id="ce" type="email" autocomplete="email"></div><div><label for="cp">Phone</label><input id="cp" type="tel" autocomplete="tel"></div></div>
+      <label for="cx">Notes (optional)</label><textarea id="cx" rows="2" placeholder="Shoot location, special requests"></textarea>
+      <p class="note">We create a PDF of your quotation and send it to Uncap Gear.</p>
+      <div class="err" id="err" role="alert"></div><div class="ok" id="ok" role="status"></div>
+      <button class="btn" style="width:100%;border:0" id="send">Send quotation to Uncap Gear</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="page" id="contact"><div class="wrap">
+  <div class="sec-h"><div><h2>Contact</h2><p>Questions about kit or availability? Send us a message.</p></div></div>
+  <div class="cgrid">
+    <div class="panel"><h3>Uncap Gear</h3><p>Johannesburg, Gauteng<br>Mon–Fri 08:00–17:00, Sat 09:00–13:00</p><p>hello@uncapgear.example<br>+27 00 000 0000</p><p style="color:var(--muted)">Replace these placeholder details with your own.</p></div>
+    <form class="panel" id="cf">
+      <label for="n">Name</label><input id="n" required>
+      <label for="e">Email</label><input id="e" type="email" required>
+      <label for="m">Message</label><textarea id="m" rows="5" required></textarea>
+      <button class="btn" style="margin-top:16px;border:0">Send message</button>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer>© Uncap Gear. All rental prices are per day and exclude VAT.</footer>
+
+<dialog id="dlg"><div id="pd"></div></dialog>
+<div id="toast" role="status"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
